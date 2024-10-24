@@ -1,0 +1,29 @@
+#Middleware
+=>Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle.
+
+#Middleware functions can perform the following tasks:
+1.Execute any code.
+2.Make changes to the request and the response objects.
+3.End the request-response cycle.
+4.Call the next middleware in the stack.
+
+(Note:To load the middleware function, call app.use())
+
+#Types of Middleware
+1.Application-level middleware
+=>Bound to the app object using app.use() or similar methods. They are executed for every request to the app.
+
+2.Router-level middleware
+=>Bound to instances of express.Router(). They are similar to application-level middleware but are only invoked for routes within the router.
+
+3.Error-handling middleware
+=>Defined with four parameters instead of three (err, req, res, next). They are used to handle errors in the application.
+
+4.Built-in middleware
+1.(express.static) serves static assets such as HTML files, images, and so on.
+2.(express.json) parses incoming requests with JSON payloads. NOTE: Available with Express 4.16.0+
+3.(express.urlencoded) parses incoming requests with URL-encoded payloads. NOTE: Available with Express 4.16.0+
+
+5.Built-in middleware
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
